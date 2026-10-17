@@ -24,12 +24,4 @@ export const projects: Project[] = [
     tags: ['Java', 'FTC SDK', 'Robotics', 'Android'],
     repoUrl: 'https://github.com/FTC-6183/FTC6183-DECODE',
   },
-  {
-    title: 'Personal Website',
-    description:
-      'This site. Static Astro build with a Markdown blog, deployed to Cloudflare Workers on a free Student Pack domain.',
-    tags: ['Astro', 'TypeScript', 'Tailwind', 'Cloudflare'],
-    repoUrl: 'https://github.com/CheickAmadou/personal-website',
-    featured: true,
-  },
 ];
