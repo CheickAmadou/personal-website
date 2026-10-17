@@ -18,6 +18,13 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    title: 'FTC 6183 — DECODE Season',
+    description:
+      'Full Java robot code for FTC Robotics Team 6183, which I co-captained and led programming for. Autonomous routines and driver-control systems for a 14-person team; won 1st Place Innovate Award at the Southeast Guilford State Qualifier.',
+    tags: ['Java', 'FTC SDK', 'Robotics', 'Android'],
+    repoUrl: 'https://github.com/FTC-6183/FTC6183-DECODE',
+  },
+  {
     title: 'Personal Website',
     description:
       'This site. Static Astro build with a Markdown blog, deployed to Cloudflare Workers on a free Student Pack domain.',
