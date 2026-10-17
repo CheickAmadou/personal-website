@@ -1,0 +1,21 @@
+---
+import type { Project } from '../data/projects';
+interface Props { project: Project }
+const { project } = Astro.props;
+---
+
+<article class="rounded-lg border border-zinc-200 p-5 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600">
+  <h3 class="text-lg font-semibold">{project.title}</h3>
+  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{project.description}</p>
+  <ul class="mt-3 flex flex-wrap gap-2">
+    {project.tags.map((tag) => (
+      <li class="rounded bg-zinc-100 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">{tag}</li>
+    ))}
+  </ul>
+  {(project.repoUrl || project.liveUrl) && (
+    <div class="mt-4 flex gap-4 text-sm">
+      {project.repoUrl && <a href={project.repoUrl} class="underline" target="_blank" rel="noopener noreferrer">Source</a>}
+      {project.liveUrl && <a href={project.liveUrl} class="underline" target="_blank" rel="noopener noreferrer">Live</a>}
+    </div>
+  )}
+</article>
