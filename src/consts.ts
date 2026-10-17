@@ -2,10 +2,10 @@
 export const SITE = {
   name: 'Cheick Amadou',
   title: 'Cheick Amadou',
-  description: 'Student, developer, and builder. Projects, writing, and resume.',
-  email: 'cheickmouslimamadou@gmail.com',
+  description: 'Student, developer, and builder.',
+  email: 'cma2253@columbia.edu',
   github: 'https://github.com/CheickAmadou',
-  linkedin: 'https://www.linkedin.com/in/cheickamadou',
+  linkedin: 'https://www.linkedin.com/in/cheick-amadou-889a50393/',
 } as const;
 
 export const NAV = [

@@ -1,0 +1,187 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.1in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[topsep=0pt, parsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=*]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Cheick Amadou} \\ \vspace{1pt}
+    \small 336-860-4182 $|$ \href{mailto:cheickmouslimamadou@gmail.com}{\underline{cheickmouslimamadou@gmail.com}} $|$ \href{https://github.com/CheickAmadou}{\underline{github.com/CheickAmadou}} $|$ New York, NY
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Columbia University}{May 2030}
+      {B.S. in Computer Science}{New York, New York}
+    \resumeSubheading
+      {The Early College at Guilford / Guilford College (Dual Enrollment)}{May 2026}
+      {HS GPA: 4.828/4.00 $|$ College GPA: 4.00/4.00 $|$ SAT: 1590 $|$ ACT: 36}{Greensboro, North Carolina}
+  \resumeSubHeadingListEnd
+
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Software Engineer}{August 2026 -- September 2026}
+      {Twinly}{Remote}
+      \resumeItemListStart
+        \resumeItem{Building the Windows client for Twinly, a cross-platform desktop AI agent, with an Electron and React interface over a C\# agent runtime}
+        \resumeItem{Shipped a pull request improving voice feature clarity; maintain parity with the macOS and iOS clients}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Robotics Intern (Gokaraju Lab)}{June 2026 -- August 2026}
+      {North Carolina A\&T State University}{Greensboro, North Carolina}
+      \resumeItemListStart
+        \resumeItem{Built a ROS 2 control stack in Python and Arduino C for a mobile robot automating BNC cable connection to oscilloscopes}
+        \resumeItem{Designed the robot in Onshape and machined its aluminum chassis with Fusion 360 CAM on a 3-axis CNC mill}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Bioinformatics Research Assistant}{March 2025 -- May 2026}
+      {Illinois State University}{Remote}
+      \resumeItemListStart
+        \resumeItem{Built Python pipelines to clean FASTA protein sequence data for a phosphorylation site prediction study}
+        \resumeItem{Generated sequence embeddings with the ESM2 language model to train downstream classifiers}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Co-Captain \& Lead Programmer}{March 2025 -- May 2026}
+      {FTC Robotics Team 6183 $|$ \href{https://github.com/FTC-6183/FTC6183-DECODE}{github.com/FTC-6183/FTC6183-DECODE}}{Greensboro, North Carolina}
+      \resumeItemListStart
+        \resumeItem{Co-led a 14-person team, owning the full Java stack including autonomous routines and driver-control systems}
+        \resumeItem{Won 1st Place Innovate Award at the Southeast Guilford State Qualifier and nominated for FIRST Dean's List}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Research Assistant}{July 2024 -- May 2026}
+      {Joint School of Nanoscience and Nanoengineering (NC A\&T)}{Greensboro, North Carolina}
+      \resumeItemListStart
+        \resumeItem{Built a PySide6 control interface with live sensor output and logging for a \$30,000-grant vesicle filtration system}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Math Instructor}{June 2024 -- April 2026}
+      {Mathnasium}{Greensboro, North Carolina}
+      \resumeItemListStart
+        \resumeItem{Instructed 20+ students per session in a drop-in learning center, covering material from arithmetic through calculus}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{AutoCable} $|$ \emph{Python, C, ROS 2, Linux} $|$ \href{https://github.com/CheickAmadou/AutoCable}{github.com/CheickAmadou/AutoCable}}{}
+      \resumeItemListStart
+        \resumeItem{Engineered teleoperation for a mecanum-drive robot: ROS 2 (Jazzy) nodes on a Jetson Orin Nano bridged over serial to an Arduino Mega 2560 running 50 Hz PID velocity control}
+        \resumeItem{Built a dependency-free browser control room (Python standard library) with virtual joysticks, FPV touch controls, and live Intel RealSense D405 color and depth streams}
+        \resumeItem{Implemented a triple-redundant dead-man safety chain (browser heartbeat, node liveness, serial watchdog) that stops the robot within one second of any failure, verified by fault injection}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+%-----------SKILLS-----------
+\section{Technical Skills}
+  \begin{itemize}[leftmargin=0.15in, label={}, topsep=0pt, parsep=0pt, partopsep=0pt, itemsep=1pt]
+    \item \small{\textbf{Languages}{: Python, Java, C (Arduino), SQL}}
+    \item \small{\textbf{Frameworks \& Tools}{: ROS 2, PySide6, Onshape, Fusion 360}}
+    \item \small{\textbf{Coursework (Guilford College)}{: Data Structures \& Algorithms, Operating Systems, Database Systems, Discrete Math, Linear Algebra, Multivariable Calculus, Differential Equations, Modern Algebra}}
+  \end{itemize}
+  \vspace{-6pt}
+
+%-----------ADDITIONAL-----------
+\section{Additional}
+  \begin{itemize}[leftmargin=0.15in, label={}, topsep=0pt, parsep=0pt, partopsep=0pt, itemsep=1pt]
+    \item \small{\textbf{Awards}{: Y Combinator Startup School, invite-only cohort, San Francisco (2026); CMU Summer Academy for Math and Science (5\% acceptance rate), Best Chemistry Presentation (2025), Jane Street's NYC Mystery Planet (2nd Place), Citadel Trading Campus Competition (1st Place), HOSA State Biotechnology 5th Place, Science Olympiad State Circuit Lab 8th Place }}
+    \item \small{\textbf{Volunteering/Teaching}{: Discrete Math Teaching Assistant, Guilford College (2025); designed and taught an online Intro to Python course (SMATH Tutors, 2024), Guilford County Service-Learning Youth Council (Equity Chair), Verizon Innovative Learners (STEM Achievers Volunteer), Tech Refuge (Treasurer)}}
+  \end{itemize}
+%-------------------------------------------
+\end{document}

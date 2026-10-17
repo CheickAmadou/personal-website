@@ -1,44 +1,78 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE } from '../consts';
+import { parseResume } from '../lib/parseResume';
+import resumeTex from '../data/resume.tex?raw';
+
+// The page is generated from the same LaTeX source as the PDF, so the two never drift.
+const resume = parseResume(resumeTex);
+const plainName = resume.name.replace(/<[^>]+>/g, '');
 ---
 
-<BaseLayout title="Resume" description={`Resume of ${SITE.name}.`}>
+<BaseLayout title="Resume" description={`Resume of ${plainName}.`}>
   <div class="flex items-baseline justify-between">
     <h1 class="text-3xl font-bold tracking-tight">Resume</h1>
     <a href="/resume.pdf" class="text-sm underline" download>Download PDF</a>
   </div>
 
-  <section class="mt-10">
-    <h2 class="text-xl font-semibold">Education</h2>
-    <div class="mt-4">
-      <div class="flex justify-between gap-4">
-        <p class="font-medium">Your University — B.S. in Your Major</p>
-        <p class="shrink-0 text-sm text-zinc-500">2024 – 2028</p>
-      </div>
-      <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Relevant coursework, honors, clubs.</p>
-    </div>
-  </section>
+  <header class="mt-8 text-center">
+    <p class="text-2xl font-bold tracking-tight" set:html={resume.name} />
+    <p class="resume-contact mt-1 text-sm text-zinc-600 dark:text-zinc-400" set:html={resume.contact} />
+  </header>
 
-  <section class="mt-10">
-    <h2 class="text-xl font-semibold">Experience</h2>
-    <div class="mt-4">
-      <div class="flex justify-between gap-4">
-        <p class="font-medium">Role — Company</p>
-        <p class="shrink-0 text-sm text-zinc-500">Summer 2025</p>
+  {resume.sections.map((section) => (
+    <section class="mt-8">
+      <h2
+        class="border-b border-zinc-300 pb-1 text-lg font-semibold uppercase tracking-wide dark:border-zinc-700"
+        set:html={section.title}
+      />
+      <div class="mt-3 space-y-4">
+        {section.entries.map((entry) => {
+          if (entry.kind === 'line') {
+            return <p class="resume-inline text-sm" set:html={entry.html} />;
+          }
+          return (
+            <div>
+              {entry.kind === 'subheading' && (
+                <>
+                  <div class="flex justify-between gap-4">
+                    <p class="font-semibold" set:html={entry.title} />
+                    <p class="shrink-0 text-sm text-zinc-500 dark:text-zinc-400" set:html={entry.right} />
+                  </div>
+                  <div class="flex justify-between gap-4 text-sm italic text-zinc-600 dark:text-zinc-400">
+                    <p class="resume-inline" set:html={entry.subtitle} />
+                    <p class="shrink-0" set:html={entry.subright} />
+                  </div>
+                </>
+              )}
+              {entry.kind === 'subsubheading' && (
+                <div class="flex justify-between gap-4 text-sm italic text-zinc-600 dark:text-zinc-400">
+                  <p set:html={entry.subtitle} />
+                  <p class="shrink-0" set:html={entry.subright} />
+                </div>
+              )}
+              {entry.kind === 'project' && (
+                <div class="flex justify-between gap-4">
+                  <p class="resume-inline" set:html={entry.heading} />
+                  <p class="shrink-0 text-sm text-zinc-500 dark:text-zinc-400" set:html={entry.right} />
+                </div>
+              )}
+              {entry.items.length > 0 && (
+                <ul class="mt-1.5 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
+                  {entry.items.map((item) => <li class="resume-inline" set:html={item} />)}
+                </ul>
+              )}
+            </div>
+          );
+        })}
       </div>
-      <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-400">
-        <li>What you did, with a number if you have one.</li>
-        <li>Another concrete outcome.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="mt-10">
-    <h2 class="text-xl font-semibold">Skills</h2>
-    <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-      <strong>Languages:</strong> Python, TypeScript, Java ·
-      <strong>Tools:</strong> Git, Linux, Docker
-    </p>
-  </section>
+    </section>
+  ))}
 </BaseLayout>
+
+<style>
+  .resume-contact :global(a),
+  .resume-inline :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
