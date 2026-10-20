@@ -17,10 +17,8 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   <section>
     <h1 class="text-4xl font-bold tracking-tight">Hi, I'm {SITE.name}.</h1>
     <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-      I'm a freshman at Columbia who likes to build things and write about what I learn.
+      I'm a freshman at Columbia who likes to build things and write about what I learn. <br /> This is my little corner of the internet.
     </p>
-    <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-      This is my little corner of the internet    </p>
     <div class="mt-6 text-sm text-zinc-500 dark:text-zinc-400">
       <SocialLinks />
     </div>
